@@ -1,17 +1,22 @@
-# LTable
+# LocalizationTable
+Localization conveniences for Swift.
 
-Localization convenience for Swift.
-
-## Installation
-
-### Swift Package Manager
-Add the following line to your package dependencies
-`.package(url: "https://github.com/ryanslikesocool/ltable.git", from: "0.0.1"),`
+## Installation (Swift Package Manager)
+Add the following entry to your package dependencies.
+```swift
+.package(url: "https://github.com/ryanslikesocool/LocalizationTable.git", from: "0.0.1"),
+```
 
 ## Usage
 
 ```swift
-import LTable
+import LocalizationTable
 
-// TODO:								
+extension LocalizationTableResource { 
+	// declare once...
+	static let myLocalizationTable: Self = "MyLocalizationTable"
+}
+
+// use everywhere!
+String(localized: "LOCALIZATION_KEY", table: .myLocalizationTable)
 ```

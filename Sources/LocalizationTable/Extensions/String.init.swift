@@ -4,33 +4,33 @@ public extension String {
 	@inlinable @inline(__always)
 	init(
 		localized keyAndValue: LocalizationValue,
-		table: LocalizationTable,
+		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: keyAndValue, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
+		let resource = LocalizedStringResource(keyAndValue, table: table, comment: comment)
+		self.init(localized: resource)
 	}
 
 	@inlinable @inline(__always)
 	init(
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
-		table: LocalizationTable,
+		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, defaultValue: defaultValue, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
+		let resource = LocalizedStringResource(key, defaultValue: defaultValue, table: table, comment: comment)
+		self.init(localized: resource)
 	}
-}
 
-@available(macOS 13, iOS 16, tvOS 16, watchOS 9, *)
-public extension String {
 	@inlinable @inline(__always)
 	init(
 		localized keyAndValue: LocalizationValue,
 		options: LocalizationOptions,
-		table: LocalizationTable,
+		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: keyAndValue, options: options, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
+		let resource = LocalizedStringResource(keyAndValue, table: table, comment: comment)
+		self.init(localized: resource, options: options)
 	}
 
 	@inlinable @inline(__always)
@@ -38,9 +38,10 @@ public extension String {
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
 		options: LocalizationOptions,
-		table: LocalizationTable,
+		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
+		let resource = LocalizedStringResource(key, defaultValue: defaultValue, table: table, comment: comment)
+		self.init(localized: resource, options: options)
 	}
 }
