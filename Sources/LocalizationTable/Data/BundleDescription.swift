@@ -4,7 +4,7 @@ public typealias BundleDescription = LocalizedStringResource.BundleDescription
 
 // MARK: - Equatable
 
-extension BundleDescription: Equatable {
+extension BundleDescription: @retroactive Equatable {
 	public static func == (lhs: Self, rhs: Self) -> Bool {
 		switch (lhs, rhs) {
 			case let (.atURL(lhs), .atURL(rhs)): lhs == rhs

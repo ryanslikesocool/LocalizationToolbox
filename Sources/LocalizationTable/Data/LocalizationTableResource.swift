@@ -3,6 +3,7 @@ import Foundation
 /// A reference to a localization table, accessible from another process.
 public struct LocalizationTableResource {
 	public typealias BundleDescription = LocalizedStringResource.BundleDescription
+	public typealias LocaleProvider = @Sendable () -> Locale
 
 	/// The name of the table containing the key-value pairs.
 	public let name: String
@@ -10,8 +11,11 @@ public struct LocalizationTableResource {
 	/// The bundle containing the table’s strings file.
 	public let bundle: BundleDescription
 
+	/// The function used to get the locale to use to look up a localized string.
+	private let localeProvider: LocaleProvider
+
 	/// The locale to use to look up a localized string.
-	public var locale: Locale
+	public var locale: Locale { localeProvider() }
 
 	/// Create a reference to a localization table.
 	/// - Parameters:
@@ -21,11 +25,11 @@ public struct LocalizationTableResource {
 	public init(
 		_ name: String,
 		bundle: BundleDescription = .main,
-		locale: Locale = .current
+		locale localeProvider: @autoclosure @escaping LocaleProvider = .current
 	) {
 		self.name = name
 		self.bundle = bundle
-		self.locale = locale
+		self.localeProvider = localeProvider
 	}
 }
 
