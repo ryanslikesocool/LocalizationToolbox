@@ -11,7 +11,7 @@ public extension LocalizedStringResource {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(keyAndValue, table: table.name, locale: table.locale, bundle: table.bundle, comment: comment)
+		self.init(keyAndValue, table: table.name, locale: table.locale.resolved(), bundle: table.bundle, comment: comment)
 	}
 
 	/// Creates a localized string resource from a static string and its bundle properties.
@@ -26,6 +26,6 @@ public extension LocalizedStringResource {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(key, defaultValue: defaultValue, table: table.name, locale: table.locale, bundle: table.bundle, comment: comment)
+		self.init(key, defaultValue: defaultValue, table: table.name, locale: table.locale.resolved(), bundle: table.bundle, comment: comment)
 	}
 }

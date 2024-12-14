@@ -11,7 +11,7 @@ public extension String {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: keyAndValue, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: keyAndValue, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 
 	/// Creates a localized string from an arbitrary static string key.
@@ -26,7 +26,7 @@ public extension String {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, defaultValue: defaultValue, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: key, defaultValue: defaultValue, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 
 	/// Creates a localized string from an interpolated string, applying the specified options.
@@ -41,7 +41,7 @@ public extension String {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: keyAndValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: keyAndValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 
 	/// Creates a localized string from an arbitrary static string key, applying the specified options.
@@ -58,6 +58,6 @@ public extension String {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 }

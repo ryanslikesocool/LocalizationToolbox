@@ -13,7 +13,7 @@ public extension AttributedString {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: key, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 
 	/// Creates an attributed string by looking up a localized string, including an attribute scope that a key path identifies.
@@ -30,7 +30,7 @@ public extension AttributedString {
 		comment: StaticString? = nil,
 		including scope: KeyPath<AttributeScopes, S.Type>
 	) where S: AttributeScope {
-		self.init(localized: key, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment, including: scope)
+		self.init(localized: key, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment, including: scope)
 	}
 
 	/// Creates an attributed string by looking up a localized string, using a default value if necessary.
@@ -47,7 +47,7 @@ public extension AttributedString {
 		table: LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
-		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment)
+		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment)
 	}
 
 	/// Creates an attributed string by looking up a localized string, including an attribute scope that a key path identifies, using a default value if necessary.
@@ -66,6 +66,6 @@ public extension AttributedString {
 		comment: StaticString? = nil,
 		including scope: KeyPath<AttributeScopes, S.Type>
 	) where S: AttributeScope {
-		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale, comment: comment, including: scope)
+		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle.resolved(), locale: table.locale.resolved(), comment: comment, including: scope)
 	}
 }

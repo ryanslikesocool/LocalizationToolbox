@@ -1,0 +1,3 @@
+# ``LocalizationTable``
+
+String localization conveniences.

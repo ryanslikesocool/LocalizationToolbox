@@ -23,8 +23,9 @@ import Foundation
 import LocalizationTable
 import SwiftUI
 
+// declare once...
+
 extension LocalizationTableResource {
-	// declare once...
 	static let myLocalizationTable = Self("MyLocalizationTable")
 	
 	static let myOtherLocalizationTable = Self(
@@ -38,9 +39,9 @@ extension LocalizationTableResource {
 
 Swift.String(localized: "KEY1", table: .myLocalizationTable)
 
-Foundation.AttributedString(localized: "KEY2", table: .myLocalizationTable)
+Foundation.AttributedString(localized: "KEY2", table: .myOtherLocalizationTable)
 
 Foundation.LocalizedStringResource("KEY3", table: .myLocalizationTable)
 
-SwiftUI.Text("KEY4", table: .myLocalizationTable)
+SwiftUI.Text("KEY4", table: .myOtherLocalizationTable)
 ```
