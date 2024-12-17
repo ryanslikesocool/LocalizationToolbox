@@ -21,6 +21,7 @@ String localization conveniences.
 
 - ``BundleDescriptionResolvable``
 - ``BundleResolvable``
+- ``LocaleDescriptionResolvable``
 - ``LocaleResolvable``
 
 ### Extended Objects

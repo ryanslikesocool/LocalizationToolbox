@@ -75,6 +75,14 @@ extension LocaleDescription: LocaleResolvable {
 	}
 }
 
+// MARK: - LocaleDescriptionResolvable
+
+extension LocaleDescription: LocaleDescriptionResolvable {
+	public func resolveLocaleDescription() -> LocaleDescription {
+		self
+	}
+}
+
 // MARK: - Convenience
 
 public extension LocaleDescription {
