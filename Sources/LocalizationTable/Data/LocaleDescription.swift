@@ -1,9 +1,11 @@
 import Foundation
 
-/// A wrapper around
-/// [`Locale`](https://developer.apple.com/documentation/foundation/locale) that preserves information about dynamic properties like
+/// A wrapper around [`Locale`](https://developer.apple.com/documentation/foundation/locale) that preserves information about dynamic properties.
+///
+/// The dynamic nature of properties such as
 /// [`Locale.current`](https://developer.apple.com/documentation/foundation/locale/2293654-current) and
-/// [`Locale.autoupdatingCurrent`](https://developer.apple.com/documentation/foundation/locale/2293741-autoupdatingcurrent).
+/// [`Locale.autoupdatingCurrent`](https://developer.apple.com/documentation/foundation/locale/2293741-autoupdatingcurrent)
+/// cannot be preserved by default, since they are computed when read.
 public enum LocaleDescription {
 	/// A fixed [`Locale`](https://developer.apple.com/documentation/foundation/locale) value.
 	case fixed(Locale)
@@ -61,6 +63,18 @@ extension LocaleDescription: Codable {
 	}
 }
 
+// MARK: - LocaleResolvable
+
+extension LocaleDescription: LocaleResolvable {
+	public func resolveLocale() -> Locale {
+		switch self {
+			case let .fixed(locale): locale
+			case .current: .current
+			case .autoupdatingCurrent: .autoupdatingCurrent
+		}
+	}
+}
+
 // MARK: - Convenience
 
 public extension LocaleDescription {
@@ -70,19 +84,6 @@ public extension LocaleDescription {
 			case .current: .current
 			case .autoupdatingCurrent: .autoupdatingCurrent
 			case let other: .fixed(other)
-		}
-	}
-}
-
-// MARK: -
-
-public extension LocaleDescription {
-	/// Resolve the locale description into a [`Locale`](https://developer.apple.com/documentation/foundation/locale) .
-	func resolved() -> Locale {
-		switch self {
-			case let .fixed(locale): locale
-			case .current: .current
-			case .autoupdatingCurrent: .autoupdatingCurrent
 		}
 	}
 }

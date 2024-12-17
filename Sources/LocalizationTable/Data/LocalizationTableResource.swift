@@ -2,8 +2,6 @@ import Foundation
 
 /// A reference to a localization table, accessible from another process.
 public struct LocalizationTableResource {
-	public typealias BundleDescription = LocalizedStringResource.BundleDescription
-
 	/// The name of the table containing the key-value pairs.
 	public let name: String?
 
@@ -12,7 +10,7 @@ public struct LocalizationTableResource {
 
 	/// The locale to use to look up a localized string.
 	///
-	/// This value is ``LocaleDescription/resolved()`` into a [`Locale`](https://developer.apple.com/documentation/foundation/locale) when passed into initializers.
+	/// When passed into initializers, ``LocaleDescription/resolveLocale()`` is called to resolve the description into a [`Locale`](https://developer.apple.com/documentation/foundation/locale).
 	public var locale: LocaleDescription
 
 	/// Create a reference to a localization table.

@@ -1,5 +1,8 @@
 import Foundation
 
+/// The location of a bundle to use for looking up localized strings, such as the main bundle, or a bundle at a specific file URL.
+///
+/// This object is a typealias for ``Foundation/LocalizedStringResource/BundleDescription``.
 public typealias BundleDescription = LocalizedStringResource.BundleDescription
 
 // MARK: - Equatable
@@ -10,7 +13,7 @@ extension BundleDescription: @retroactive Equatable {
 			case let (.atURL(lhs), .atURL(rhs)): lhs == rhs
 			case let (.forClass(lhs), .forClass(rhs)): lhs == rhs
 			case (.main, .main): true
-			default: lhs.resolved() == rhs.resolved()
+			default: lhs.resolveBundle() == rhs.resolveBundle()
 		}
 	}
 }
@@ -95,23 +98,48 @@ extension BundleDescription: @retroactive Decodable, @retroactive Encodable {
 	}
 }
 
+// MARK: - BundleResolvable
+
+extension BundleDescription: BundleResolvable {
+	public func resolveBundle() -> Bundle? {
+		switch self {
+			case .main:
+				Bundle.main
+			case let .forClass(`class`):
+				Bundle(for: `class`)
+			case let .atURL(url):
+				Bundle(url: url)
+			case let other:
+				bundleDescriptionCaseNotImplemented(other)
+		}
+	}
+}
+
+// MARK: - BundleDescriptionResolvable
+
+extension BundleDescription: BundleDescriptionResolvable {
+	public func resolveBundleDescription() -> BundleDescription {
+		self
+	}
+}
+
 // MARK: - Operators
 
 public extension BundleDescription {
 	static func == (lhs: Self, rhs: Bundle) -> Bool {
-		lhs.resolved() == rhs
+		lhs.resolveBundle() == rhs
 	}
 
 	static func == (lhs: Bundle, rhs: Self) -> Bool {
-		lhs == rhs.resolved()
+		lhs == rhs.resolveBundle()
 	}
 
 	static func != (lhs: Self, rhs: Bundle) -> Bool {
-		lhs.resolved() != rhs
+		lhs.resolveBundle() != rhs
 	}
 
 	static func != (lhs: Bundle, rhs: Self) -> Bool {
-		lhs != rhs.resolved()
+		lhs != rhs.resolveBundle()
 	}
 }
 
@@ -131,8 +159,8 @@ public extension BundleDescription {
 
 // MARK: -
 
-public extension BundleDescription {
-	private func simplified() -> Self {
+private extension BundleDescription {
+	func simplified() -> Self {
 		switch self {
 			case .main:
 				return self
@@ -143,23 +171,10 @@ public extension BundleDescription {
 				bundleDescriptionCaseNotImplemented(other)
 		}
 
-		return if let bundle = resolved() {
+		return if let bundle = resolveBundle() {
 			Self(bundle)
 		} else {
 			self
-		}
-	}
-
-	func resolved() -> Bundle? {
-		switch self {
-			case .main:
-				Bundle.main
-			case let .forClass(`class`):
-				Bundle(for: `class`)
-			case let .atURL(url):
-				Bundle(url: url)
-			case let other:
-				bundleDescriptionCaseNotImplemented(other)
 		}
 	}
 }
