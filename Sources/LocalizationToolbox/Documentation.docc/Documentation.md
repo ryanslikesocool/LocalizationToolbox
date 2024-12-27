@@ -1,4 +1,4 @@
-# ``LocalizationTable``
+# ``LocalizationToolbox``
 
 String localization conveniences.
 

@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "LocalizationTable",
+	name: "LocalizationToolbox",
 	defaultLocalization: "en",
 	platforms: [
 		.macOS(.v13),
@@ -14,9 +14,9 @@ let package = Package(
 		.visionOS(.v1),
 	],
 	products: [
-		.library(name: "LocalizationTable", targets: ["LocalizationTable"]),
+		.library(name: "LocalizationToolbox", targets: ["LocalizationToolbox"]),
 	],
 	targets: [
-		.target(name: "LocalizationTable"),
+		.target(name: "LocalizationToolbox"),
 	]
 )

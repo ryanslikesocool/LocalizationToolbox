@@ -1,26 +1,34 @@
-# LocalizationTable
+# LocalizationToolbox
+
 String localization conveniences for Swift.
 
+---
+
+
 ## Installation (Swift Package Manager)
+
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/LocalizationTable.git", from: "0.0.1"),
+.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.2"),
 ```
-...and your target dependencies.
+... and your target dependencies.
 ```swift
 .target(
 	name: "MyTarget",
 	dependencies: [
-		"LocalizationTable",
+		"LocalizationToolbox",
 	]
 ),
 ```
+
+
+---
 
 ## Usage
 
 ```swift
 import Foundation
-import LocalizationTable
+import LocalizationToolbox
 import SwiftUI
 
 // declare once...
