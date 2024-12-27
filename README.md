@@ -1,6 +1,6 @@
 # LocalizationToolbox
 
-String localization conveniences for Swift.
+String localization utilities and conveniences for Swift.
 
 ---
 
@@ -9,7 +9,7 @@ String localization conveniences for Swift.
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.2"),
+.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.3"),
 ```
 ... and your target dependencies.
 ```swift
@@ -24,32 +24,9 @@ Add the following entry to your package dependencies...
 
 ---
 
-## Usage
+## Documentation
 
-```swift
-import Foundation
-import LocalizationToolbox
-import SwiftUI
-
-// declare once...
-
-extension LocalizationTableResource {
-	static let myLocalizationTable = Self("MyLocalizationTable")
-	
-	static let myOtherLocalizationTable = Self(
-		"MyOtherLocalizationTable",
-		bundle: .main,
-		locale: .current
-	)
-}
-
-// ...use everywhere!
-
-Swift.String(localized: "KEY1", table: .myLocalizationTable)
-
-Foundation.AttributedString(localized: "KEY2", table: .myOtherLocalizationTable)
-
-Foundation.LocalizedStringResource("KEY3", table: .myLocalizationTable)
-
-SwiftUI.Text("KEY4", table: .myOtherLocalizationTable)
-```
+Most of this package is documented with
+[DocC](https://www.swift.org/documentation/docc/)\.
+<br/>
+To view documentation in Xcode, select `Product > Build Documentation` from the menu bar.

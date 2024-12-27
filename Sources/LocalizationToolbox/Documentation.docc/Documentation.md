@@ -1,6 +1,6 @@
 # ``LocalizationToolbox``
 
-String localization conveniences.
+String localization utilities and conveniences.
 
 ## Topics
 
