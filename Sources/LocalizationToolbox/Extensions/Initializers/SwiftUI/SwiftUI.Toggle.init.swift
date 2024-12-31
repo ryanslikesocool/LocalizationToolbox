@@ -1,5 +1,8 @@
 #if canImport(SwiftUI)
 import SwiftUI
+#if canImport(AppIntents)
+import AppIntents
+#endif
 
 public extension Toggle where
 	Label == Text
@@ -35,10 +38,31 @@ public extension Toggle where
 		sources: C,
 		isOn: KeyPath<C.Element, Binding<Bool>>
 	) where
-		C : RandomAccessCollection
+		C: RandomAccessCollection
 	{
 		self.init(String(localized: title), sources: sources, isOn: isOn)
 	}
+
+#if canImport(AppIntents)
+	/// Creates a toggle that generates its label from a string resource.
+	///
+	/// This initializer creates a
+	/// [`Text`](https://developer.apple.com/documentation/swiftui/text)
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - title: A string resource that describes the purpose of the toggle.
+	///   - isOn: Whether the toggle is on or off.
+	///   - intent: The `AppIntent` to be performed.
+	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, watchOS 10, *)
+	nonisolated init(
+		_ title: LocalizedStringResource,
+		isOn: Bool,
+		intent: some AppIntent
+	) {
+		self.init(String(localized: title), isOn: isOn, intent: intent)
+	}
+#endif
 }
 
 public extension Toggle where
@@ -80,7 +104,7 @@ public extension Toggle where
 		image: ImageResource,
 		sources: C,
 		isOn: KeyPath<C.Element, Binding<Bool>>
-	) where C : RandomAccessCollection {
+	) where C: RandomAccessCollection {
 		self.init(String(localized: title), image: image, sources: sources, isOn: isOn)
 	}
 
@@ -118,7 +142,7 @@ public extension Toggle where
 		systemImage: String,
 		sources: C,
 		isOn: KeyPath<C.Element, Binding<Bool>>
-	) where C : RandomAccessCollection {
+	) where C: RandomAccessCollection {
 		self.init(String(localized: title), systemImage: systemImage, sources: sources, isOn: isOn)
 	}
 }

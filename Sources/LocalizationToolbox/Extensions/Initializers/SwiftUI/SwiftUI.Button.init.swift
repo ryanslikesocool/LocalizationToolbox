@@ -61,4 +61,14 @@ public extension Button where
 		self.init(String(localized: title), systemImage: systemImage, action: action)
 	}
 }
+
+// TODO: Add overloads for the following initializers:
+// init(_:role:action:)
+// init(_:image:role:action:)
+// init(_:systemImage:role:action:)
+// init(_:intent:)
+// init(_:role:intent:)
+// init(_:image:role:intent:)
+// init(_:systemImage:role:intent:)
+
 #endif
