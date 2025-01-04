@@ -84,5 +84,79 @@ public extension Text {
 	) {
 		self.init(key, tableName: table.name, bundle: table.bundle, comment: comment)
 	}
+
+	// MARK: - init(_:options:) +
+
+	/// Creates a text view that displays a string resource with localization options.
+	///
+	/// Use this initializer to display a localized string that is represented by a
+	/// [`LocalizedStringResource`]( https://developer.apple.com/documentation/foundation/localizedstringresource ).
+	///
+	/// - Parameters:
+	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
+//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	init(
+		_ resource: LocalizedStringResource,
+		options: String.LocalizationOptions
+	) {
+		self.init(String(localized: resource, options: options))
+	}
+
+	/// Creates a text view that displays a string resource with localization options.
+	///
+	/// Creates a text view that displays styled attributed content with localization options.
+	///
+	/// Use this initializer to display a localized string that is represented by a
+	/// [`LocalizedStringResource`]( https://developer.apple.com/documentation/foundation/localizedstringresource ).
+	///
+	/// - Parameters:
+	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
+//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	init(
+		_ resource: LocalizedStringResource,
+		options: AttributedString.LocalizationOptions
+	) {
+		self.init(AttributedString(localized: resource, options: options))
+	}
+
+	/// Creates a text view that displays a string resource with localization options.
+	///
+	/// Use this initializer to display a localized string that is represented by a
+	/// [`LocalizedStringResource`]( https://developer.apple.com/documentation/foundation/localizedstringresource ).
+	///
+	/// - Parameters:
+	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
+	///   - scope: An
+	///   [`AttributeScopes`]( https://developer.apple.com/documentation/foundation/attributescopes )
+	///   key path that identifies an attribute scope to associate with the attributed string.
+//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	init<S>(
+		_ resource: LocalizedStringResource,
+		options: AttributedString.LocalizationOptions,
+		including scope: KeyPath<AttributeScopes, S.Type>
+	) where S: AttributeScope {
+		self.init(AttributedString(localized: resource, options: options, including: scope))
+	}
+
+	/// Creates a text view that displays a string resource with localization options.
+	///
+	/// Use this initializer to display a localized string that is represented by a
+	/// [`LocalizedStringResource`]( https://developer.apple.com/documentation/foundation/localizedstringresource ).
+	///
+	/// - Parameters:
+	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
+	///   - scope:
+//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	init<S>(
+		_ resource: LocalizedStringResource,
+		options: AttributedString.LocalizationOptions,
+		including scope: S.Type
+	) where S: AttributeScope {
+		self.init(AttributedString(localized: resource, options: options, including: scope))
+	}
 }
 #endif
