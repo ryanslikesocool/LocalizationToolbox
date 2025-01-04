@@ -17,14 +17,26 @@ public extension String {
 	/// ```
 	///
 	/// If you prefer to use an arbitrary localization key rather than the localized string in the development language, use ``init(localized:defaultValue:table:bundle:locale:comment:)``.
-	/// If you need to provide localized strings to another process that might be using a different locale, use [`init(localized:)`](https://developer.apple.com/documentation/swift/string/init(localized:)) .
+	/// If you need to provide localized strings to another process that might be using a different locale, use
+	/// [`init(localized:)`]( https://developer.apple.com/documentation/swift/string/init(localized:) ).
 	///
 	/// - Parameters:
-	///   - keyAndValue: A [`String.LocalizationValue`](https://developer.apple.com/documentation/swift/string/localizationvalue) that provides the localization key to look up. This parameter also serves as the default value if the system can’t find a localized string.
-	///   - table: The bundle’s string table to search. If `table` is `nil` or is an empty string, the method attempts to use the table named `Localizable`. The default is `nil`.
-	///   - bundle: The bundle to use for looking up strings. If `nil`, an app searches its main bundle. The default is `nil`.
-	///   - locale: The locale to use when localizing interpolated values, such as numbers. This doesn’t change which locale the system uses to look up the localized string. If `nil`, this initializer uses the current locale. The default is `nil`.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - keyAndValue: A
+	///   [`String.LocalizationValue`]( https://developer.apple.com/documentation/swift/string/localizationvalue )
+	///   that provides the localization key to look up.
+	///   This parameter also serves as the default value if the system can’t find a localized string.
+	///   - table: The bundle’s string table to search.
+	///   If `table` is `nil` or is an empty string, the method attempts to use the table named `Localizable`.
+	///   The default is `nil`.
+	///   - bundle: The bundle to use for looking up strings.
+	///   If `nil`, an app searches its main bundle.
+	///   The default is `nil`.
+	///   - locale: The locale to use when localizing interpolated values, such as numbers.
+	///   This doesn’t change which locale the system uses to look up the localized string.
+	///   If `nil`, this initializer uses the current locale.
+	///   The default is `nil`.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized keyAndValue: LocalizationValue,
 		table: String? = nil,
@@ -62,15 +74,25 @@ public extension String {
 	/// ```
 	///
 	/// If you prefer to use an arbitrary localization key rather than the localized string in the development language, use ``init(localized:defaultValue:options:table:bundle:locale:comment:)``.
-	/// If you need to provide localized strings to another process that might be using a different locale, use [`init(localized:options:)`](https://developer.apple.com/documentation/swift/string/init(localized:options:)) .
+	/// If you need to provide localized strings to another process that might be using a different locale, use
+	/// [`init(localized:options:)`]( https://developer.apple.com/documentation/swift/string/init(localized:options:) ).
 	///
 	/// - Parameters:
-	///   - keyAndValue: A localization value instance that provides the localization key to look up. This parameter also serves as the default value if the system can’t find a localized string.
+	///   - keyAndValue: A localization value instance that provides the localization key to look up.
+	///   This parameter also serves as the default value if the system can’t find a localized string.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
-	///   - table: The bundle’s string table to search. If table is `nil` or is an empty string, the method attempts to use the table named `Localizable`. The default is `nil`.
-	///   - bundle: The bundle to use for looking up strings. If `nil`, an app searches its main bundle. The default is `nil`.
-	///   - locale: The locale to use when localizing interpolated values, such as numbers. This doesn’t change which locale the system uses to look up the localized string. If `nil`, this initializer uses the current locale. The default is `nil`.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - table: The bundle’s string table to search.
+	///   If `table` is `nil` or is an empty string, the method attempts to use the table named `Localizable`.
+	///   The default is `nil`.
+	///   - bundle: The bundle to use for looking up strings.
+	///   If `nil`, an app searches its main bundle.
+	///   The default is `nil`.
+	///   - locale: The locale to use when localizing interpolated values, such as numbers.
+	///   This doesn’t change which locale the system uses to look up the localized string.
+	///   If `nil`, this initializer uses the current locale.
+	///   The default is `nil`.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized keyAndValue: LocalizationValue,
 		options: LocalizationOptions,
@@ -100,15 +122,25 @@ public extension String {
 	/// ```
 	///
 	/// To use the default localization as the key rather than an explicit key, use ``init(localized:table:bundle:locale:comment:)`` instead.
-	/// If you need to provide localized strings to another process that might be using a different locale, use [`init(localized:)`](https://developer.apple.com/documentation/swift/string/init(localized:)) .
+	/// If you need to provide localized strings to another process that might be using a different locale, use
+	/// [`init(localized:)`]( https://developer.apple.com/documentation/swift/string/init(localized:) ).
 	///
 	/// - Parameters:
 	///   - key: The key for an entry in the specified table.
-	///   - defaultValue: A default value to use if looking up a localized string from the bundle fails. This is typically the localizable string in the development language.
-	///   - table: The bundle’s string table to search. If table is `nil` or is an empty string, the method attempts to use the table named `Localizable`. The default is `nil`.
-	///   - bundle: The bundle to use for looking up strings. If `nil`, an app searches its main bundle. The default is `nil`.
-	///   - locale: The locale to use when localizing interpolated values, such as numbers. This doesn’t change which locale the system uses to look up the localized string. If `nil`, this initializer uses the current locale. The default is `nil`.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - defaultValue: A default value to use if looking up a localized string from the bundle fails.
+	///   This is typically the localizable string in the development language.
+	///   - table: The bundle’s string table to search.
+	///   If `table` is `nil` or is an empty string, the method attempts to use the table named `Localizable`.
+	///   The default is `nil`.
+	///   - bundle: The bundle to use for looking up strings.
+	///   If `nil`, an app searches its main bundle.
+	///   The default is `nil`.
+	///   - locale: The locale to use when localizing interpolated values, such as numbers.
+	///   This doesn’t change which locale the system uses to look up the localized string.
+	///   If `nil`, this initializer uses the current locale.
+	///   The default is `nil`.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
@@ -152,16 +184,26 @@ public extension String {
 	/// ```
 	///
 	/// To use the default localization as the key rather than an explicit key, use ``init(localized:options:table:bundle:locale:comment:)`` instead.
-	/// If you need to provide localized strings to another process that might be using a different locale, use [`init(localized:options:)`](https://developer.apple.com/documentation/swift/string/init(localized:options:)) .
+	/// If you need to provide localized strings to another process that might be using a different locale, use
+	/// [`init(localized:options:)`]( https://developer.apple.com/documentation/swift/string/init(localized:options:) ).
 	///
 	/// - Parameters:
 	///   - key: The key for an entry in the specified table.
-	///   - defaultValue: A default value to use if looking up a localized string from the bundle fails. This is typically the localizable string in the development language.
+	///   - defaultValue: A default value to use if looking up a localized string from the bundle fails.
+	///   This is typically the localizable string in the development language.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
-	///   - table: The bundle’s string table to search. If table is `nil` or is an empty string, the method attempts to use the table named `Localizable`. The default is `nil`.
-	///   - bundle: The bundle to use for looking up strings. If `nil`, an app searches its main bundle. The default is `nil`.
-	///   - locale: The locale to use when localizing interpolated values, such as numbers. This doesn’t change which locale the system uses to look up the localized string. If `nil`, this initializer uses the current locale. The default is `nil`.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - table: The bundle’s string table to search.
+	///   If `table` is `nil` or is an empty string, the method attempts to use the table named `Localizable`.
+	///   The default is `nil`.
+	///   - bundle: The bundle to use for looking up strings.
+	///   If `nil`, an app searches its main bundle.
+	///   The default is `nil`.
+	///   - locale: The locale to use when localizing interpolated values, such as numbers.
+	///   This doesn’t change which locale the system uses to look up the localized string.
+	///   If `nil`, this initializer uses the current locale.
+	///   The default is `nil`.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
@@ -181,12 +223,16 @@ public extension String {
 	/// If you prefer to use an arbitrary localization key rather than the localized string in the development language, use ``init(localized:defaultValue:table:comment:)``.
 	///
 	/// - Parameters:
-	///   - keyAndValue: A [`String.LocalizationValue`](https://developer.apple.com/documentation/swift/string/localizationvalue) that provides the localization key to look up. This parameter also serves as the default value if the system can’t find a localized string.
+	///   - keyAndValue: A
+	///   [`String.LocalizationValue`]( https://developer.apple.com/documentation/swift/string/localizationvalue )
+	///   that provides the localization key to look up.
+	///   This parameter also serves as the default value if the system can’t find a localized string.
 	///   - table: The table resource containing the key-value pairs.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized keyAndValue: LocalizationValue,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: keyAndValue, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
@@ -200,11 +246,12 @@ public extension String {
 	///   - keyAndValue: The key for an entry in the specified table.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
 	///   - table: The table resource containing the key-value pairs.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized keyAndValue: LocalizationValue,
 		options: LocalizationOptions,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: keyAndValue, options: options, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
@@ -216,13 +263,15 @@ public extension String {
 	///
 	/// - Parameters:
 	///   - key: The key for an entry in the specified table.
-	///   - defaultValue: A localization value to use if `key` doesn’t exist in `table`. Xcode’s Product > Export Localizations feature also extracts this value as the default translation in the project’s development locale.
+	///   - defaultValue: A localization value to use if `key` doesn’t exist in `table`.
+	///   Xcode’s Product > Export Localizations feature also extracts this value as the default translation in the project’s development locale.
 	///   - table: The table resource containing the key-value pairs.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, defaultValue: defaultValue, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
@@ -234,17 +283,95 @@ public extension String {
 	///
 	/// - Parameters:
 	///   - key: The key for an entry in the specified table.
-	///   - defaultValue: A localization value to use if `key` doesn’t exist in `table`. Xcode’s Product > Export Localizations feature also extracts this value as the default translation in the project’s development locale.
+	///   - defaultValue: A localization value to use if `key` doesn’t exist in `table`.
+	///   Xcode’s Product > Export Localizations feature also extracts this value as the default translation in the project’s development locale.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
 	///   - table: The table resource containing the key-value pairs.
-	///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides the translator with some context about the localized string’s presentation to the user.
+	///   - comment: The comment to place above the key-value pair in the strings file.
+	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
 		options: LocalizationOptions,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, defaultValue: defaultValue, options: options, table: table.name, bundle: table.bundle, locale: table.locale, comment: comment)
 	}
+
+	// MARK: - LocalizationOptions
+
+	//	/// - Parameters:
+	//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+	//	///   - options:
+	//	init<E>(
+	//		localized resource: LocalizedStringResource,
+	//		options: (inout String.LocalizationOptions) throws(E) -> Void
+	//	) throws(E) where
+	//		E: Error
+	//	{
+	//		var localizationOptions = String.LocalizationOptions()
+	//		try options(&localizationOptions)
+	//		self.init(localized: resource, options: localizationOptions)
+	//	}
+
+//	/// - Parameters:
+//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+//	///   - replacements: An array of replacement options.
+//	init(
+//		localized resource: LocalizedStringResource,
+//		replacements: [any CVarArg]
+//	) {
+//		let options = LocalizationOptions(replacements: replacements)
+//		self.init(localized: resource, options: options)
+//	}
+
+//	/// - Parameters:
+//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+//	///   - replacements: An array of replacement options.
+//	init<Replacement>(
+//		localized resource: LocalizedStringResource,
+//		replacements: [Replacement]
+//	) where
+//		Replacement: CVarArg
+//	{
+//		self.init(localized: resource, replacements: replacements as [any CVarArg])
+//	}
+
+//	/// - Parameters:
+//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+//	///   - replacements: A sequence of replacement options.
+//	init<S>(
+//		localized resource: LocalizedStringResource,
+//		replacements: S
+//	) where
+//		S: Sequence,
+//		S.Element == any CVarArg
+//	{
+//		self.init(localized: resource, replacements: Array(replacements))
+//	}
+
+//	/// - Parameters:
+//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+//	///   - replacements: A sequence of replacement options.
+//	init<S>(
+//		localized resource: LocalizedStringResource,
+//		replacements: S
+//	) where
+//		S: Sequence,
+//		S.Element: CVarArg
+//	{
+//		self.init(localized: resource, replacements: Array(replacements))
+//	}
+
+//	/// - Parameters:
+//	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
+//	///   - replacements: Replacement options.
+//	init(
+//		localized resource: LocalizedStringResource,
+//		replacements firstReplacement: any CVarArg,
+//		_ otherReplacements: any CVarArg...
+//	) {
+//		self.init(localized: resource, replacements: CollectionOfOne(firstReplacement) + otherReplacements)
+//	}
 }

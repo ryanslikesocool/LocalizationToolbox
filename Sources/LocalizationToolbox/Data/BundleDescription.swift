@@ -2,7 +2,21 @@ import Foundation
 
 /// The location of a bundle to use for looking up localized strings, such as the main bundle, or a bundle at a specific file URL.
 ///
-/// This object is a typealias for ``Foundation/LocalizedStringResource/BundleDescription``.
+/// This is a typealias for ``Foundation/LocalizedStringResource/BundleDescription``.
+///
+/// ## Topics
+///
+/// ### Operators
+///
+/// - ``Foundation/LocalizedStringResource/BundleDescription/!=(_:_:)-4fz74``
+/// - ``Foundation/LocalizedStringResource/BundleDescription/!=(_:_:)-9olan``
+/// - ``Foundation/LocalizedStringResource/BundleDescription/==(_:_:)-4cei2``
+/// - ``Foundation/LocalizedStringResource/BundleDescription/==(_:_:)-4lipv``
+///
+///
+/// ### Initializers
+///
+/// - ``Foundation/LocalizedStringResource/BundleDescription/init(_:)``
 public typealias BundleDescription = LocalizedStringResource.BundleDescription
 
 // MARK: - Equatable
@@ -83,7 +97,7 @@ extension BundleDescription: @retroactive Decodable, @retroactive Encodable {
 				encodingURL = url
 				encodingClass = bundle?.principalClass
 			case let other:
-				bundleDescriptionCaseNotImplemented(other)
+				Self.fatalError(caseNotImplemented: other)
 		}
 
 		let encodingClassName: String? = if let encodingClass {
@@ -110,7 +124,7 @@ extension BundleDescription: BundleResolvable {
 			case let .atURL(url):
 				Bundle(url: url)
 			case let other:
-				bundleDescriptionCaseNotImplemented(other)
+				Self.fatalError(caseNotImplemented: other)
 		}
 	}
 }
@@ -126,6 +140,14 @@ extension BundleDescription: BundleDescriptionResolvable {
 // MARK: - Operators
 
 public extension BundleDescription {
+	static func != (lhs: Bundle, rhs: Self) -> Bool {
+		lhs != rhs.resolveBundle()
+	}
+
+	static func != (lhs: Self, rhs: Bundle) -> Bool {
+		lhs.resolveBundle() != rhs
+	}
+
 	static func == (lhs: Self, rhs: Bundle) -> Bool {
 		lhs.resolveBundle() == rhs
 	}
@@ -133,19 +155,15 @@ public extension BundleDescription {
 	static func == (lhs: Bundle, rhs: Self) -> Bool {
 		lhs == rhs.resolveBundle()
 	}
-
-	static func != (lhs: Self, rhs: Bundle) -> Bool {
-		lhs.resolveBundle() != rhs
-	}
-
-	static func != (lhs: Bundle, rhs: Self) -> Bool {
-		lhs != rhs.resolveBundle()
-	}
 }
 
 // MARK: - Convenience
 
 public extension BundleDescription {
+	/// Create a bundle description from a
+	/// [`Bundle`]( https://developer.apple.com/documentation/foundation/bundle ).
+	///
+	/// - Parameter bundle:
 	init(_ bundle: Bundle) {
 		self = if bundle == Bundle.main {
 			.main
@@ -168,7 +186,7 @@ private extension BundleDescription {
 			     .atURL:
 				break
 			case let other:
-				bundleDescriptionCaseNotImplemented(other)
+				Self.fatalError(caseNotImplemented: other)
 		}
 
 		return if let bundle = resolveBundle() {
@@ -181,22 +199,34 @@ private extension BundleDescription {
 
 // MARK: - Errors
 
-private func bundleDescriptionCaseNotImplemented(
-	_ bundleDescription: BundleDescription,
-	function: StaticString = #function
-) -> Never {
-	fatalError("""
-	'\(bundleDescription)' is not currently supported in `\(function)`.
-	\(unintendedCrashSuffix)
-	""")
-}
-
-private func bundleDescriptionResolutionUnexpectedlyNil(
-	_ bundleDescription: BundleDescription,
-	function: StaticString = #function
-) -> Never {
-	preconditionFailure("""
-	'\(bundleDescription)' unexpectedly resolved to a nil bundle in `\(function)`.
-	\(unintendedCrashSuffix)
-	""")
+private extension BundleDescription {
+	/// - Parameters:
+	///   - enumerationCase: The enumeration case that caused the error.
+	///   - function: The function where the error occurred.
+	///   This uses the
+	///   [`#function`]( https://developer.apple.com/documentation/swift/function() )
+	///   macro by default.
+	///   - file: The file where the error occurred.
+	///   This uses the
+	///   [`#file`]( https://developer.apple.com/documentation/swift/file() )
+	///   macro by default.
+	///   - line: The line where the error occurred.
+	///   This uses the
+	///   [`#line`]( https://developer.apple.com/documentation/swift/line() )
+	///   macro by default.
+	static func fatalError(
+		caseNotImplemented enumerationCase: Self,
+		function: StaticString = #function,
+		file: StaticString = #file,
+		line: UInt = #line
+	) -> Never {
+		Swift.fatalError(
+			"""
+			`\(enumerationCase)` is not currently supported in `\(function)`.
+			\(unintendedCrashSuffix)
+			""",
+			file: file,
+			line: line
+		)
+	}
 }

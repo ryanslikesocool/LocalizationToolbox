@@ -13,14 +13,17 @@ public extension Text {
 	/// If you haven’t provided localization for a particular string, you still get reasonable behavior, because the initializer displays the key, which typically contains the unlocalized string.
 	///
 	/// If you initialize a text view with a string variable rather than a string literal, the view triggers the
-	/// [`init(_:)`](https://developer.apple.com/documentation/swiftui/text/init(_:)-9d1g4)
+	/// [`init(_:)`]( https://developer.apple.com/documentation/swiftui/text/init(_:)-9d1g4 )
 	/// initializer instead, because it assumes that you don’t want localization in that case.
 	/// If you do want to localize the value stored in a string variable, you can choose to call the `init(_:tableName:bundle:comment:)` initializer by first creating a
-	/// [`LocalizedStringKey`](https://developer.apple.com/documentation/swiftui/localizedstringkey) instance from the string variable:
+	/// [`LocalizedStringKey`]( https://developer.apple.com/documentation/swiftui/localizedstringkey )
+	/// instance from the string variable:
 	/// ```swift
 	/// Text(LocalizedStringKey(someString)) // Localizes the contents of `someString`.
 	/// ```
-	/// If you have a string literal that you don’t want to localize, use the [`init(verbatim:)`](https://developer.apple.com/documentation/swiftui/text/init(verbatim:)) initializer instead.
+	/// If you have a string literal that you don’t want to localize, use the
+	/// [`init(verbatim:)`]( https://developer.apple.com/documentation/swiftui/text/init(verbatim:) )
+	/// initializer instead.
 	///
 	/// ## Styling localized strings with markdown
 	/// If the localized string or the fallback key contains Markdown, the view displays the text with appropriate styling.
@@ -36,14 +39,19 @@ public extension Text {
 	///
 	/// - Important: `Text` doesn’t render all styling possible in Markdown.
 	/// It doesn’t support line breaks, soft breaks, or any style of paragraph- or block-based formatting like lists, block quotes, code blocks, or tables.
-	/// It also doesn’t support the [`imageURL`](https://developer.apple.com/documentation/foundation/attributescopes/foundationattributes/3796122-imageurl) attribute.
+	/// It also doesn’t support the
+	/// [`imageURL`]( https://developer.apple.com/documentation/foundation/attributescopes/foundationattributes/3796122-imageurl )
+	/// attribute.
 	/// Parsing with SwiftUI treats any whitespace in the Markdown string as described by the
-	/// [`AttributedString.MarkdownParsingOptions.InterpretedSyntax.inlineOnlyPreservingWhitespace`](https://developer.apple.com/documentation/foundation/attributedstring/markdownparsingoptions/interpretedsyntax/inlineonlypreservingwhitespace) parsing option.
+	/// [`AttributedString.MarkdownParsingOptions.InterpretedSyntax.inlineOnlyPreservingWhitespace`]( https://developer.apple.com/documentation/foundation/attributedstring/markdownparsingoptions/interpretedsyntax/inlineonlypreservingwhitespace )
+	/// parsing option.
 	///
 	/// - Parameters:
 	///   - key: The key for a string in the table identified by `tableName`.
-	///   - tableName: The name of the string table to search. If `nil`, use the table in the `Localizable.strings` file.
-	///   - bundle: The bundle containing the strings file. If `nil`, use the main bundle.
+	///   - tableName: The name of the string table to search.
+	///   If `nil`, use the table in the `Localizable.strings` file.
+	///   - bundle: The bundle containing the strings file.
+	///   If `nil`, use the main bundle.
 	///   - comment: Contextual information about this key-value pair.
 	init(
 		_ key: LocalizedStringKey,
@@ -58,9 +66,12 @@ public extension Text {
 	///
 	/// - Important: `Text` doesn’t render all styling possible in Markdown.
 	/// It doesn’t support line breaks, soft breaks, or any style of paragraph- or block-based formatting like lists, block quotes, code blocks, or tables.
-	/// It also doesn’t support the [`imageURL`](https://developer.apple.com/documentation/foundation/attributescopes/foundationattributes/3796122-imageurl) attribute.
+	/// It also doesn’t support the
+	/// [`imageURL`]( https://developer.apple.com/documentation/foundation/attributescopes/foundationattributes/3796122-imageurl )
+	/// attribute.
 	/// Parsing with SwiftUI treats any whitespace in the Markdown string as described by the
-	/// [`AttributedString.MarkdownParsingOptions.InterpretedSyntax.inlineOnlyPreservingWhitespace`](https://developer.apple.com/documentation/foundation/attributedstring/markdownparsingoptions/interpretedsyntax/inlineonlypreservingwhitespace) parsing option.
+	/// [`AttributedString.MarkdownParsingOptions.InterpretedSyntax.inlineOnlyPreservingWhitespace`]( https://developer.apple.com/documentation/foundation/attributedstring/markdownparsingoptions/interpretedsyntax/inlineonlypreservingwhitespace )
+	/// parsing option.
 	///
 	/// - Parameters:
 	///   - key: The key for a string in the table identified by `table`.

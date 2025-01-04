@@ -1,19 +1,34 @@
 import Foundation
 
-/// A wrapper around [`Locale`](https://developer.apple.com/documentation/foundation/locale) that preserves information about dynamic properties.
+/// A wrapper around
+/// [`Locale`]( https://developer.apple.com/documentation/foundation/locale )
+/// that preserves information about computed properties.
 ///
 /// The dynamic nature of properties such as
-/// [`Locale.current`](https://developer.apple.com/documentation/foundation/locale/2293654-current) and
-/// [`Locale.autoupdatingCurrent`](https://developer.apple.com/documentation/foundation/locale/2293741-autoupdatingcurrent)
+/// [`Locale.current`]( https://developer.apple.com/documentation/foundation/locale/2293654-current )
+/// and
+/// [`Locale.autoupdatingCurrent`]( https://developer.apple.com/documentation/foundation/locale/2293741-autoupdatingcurrent )
 /// cannot be preserved by default, since they are computed when read.
 public enum LocaleDescription {
-	/// A fixed [`Locale`](https://developer.apple.com/documentation/foundation/locale) value.
+	/// A fixed
+	/// [`Locale`]( https://developer.apple.com/documentation/foundation/locale )
+	/// value.
+	///
+	/// When ``resolveLocale()`` is called, the case argument is returned.
 	case fixed(Locale)
 
 	/// The user's current locale.
+	///
+	/// When ``resolveLocale()`` is called,
+	/// [`Locale.current`]( https://developer.apple.com/documentation/foundation/locale/2293654-current )
+	/// is returned.
 	case current
 
 	/// A locale which tracks the user’s current preferences.
+	///
+	/// When ``resolveLocale()`` is called,
+	/// [`Locale.autoupdatingCurrent`]( https://developer.apple.com/documentation/foundation/locale/2293741-autoupdatingcurrent )
+	/// is returned.
 	case autoupdatingCurrent
 }
 
@@ -86,7 +101,10 @@ extension LocaleDescription: LocaleDescriptionResolvable {
 // MARK: - Convenience
 
 public extension LocaleDescription {
-	/// Create a locale description from a [`Locale`](https://developer.apple.com/documentation/foundation/locale) .
+	/// Create a locale description from a
+	/// [`Locale`]( https://developer.apple.com/documentation/foundation/locale ).
+	///
+	/// - Parameter locale:
 	init(_ locale: Locale) {
 		self = switch locale {
 			case .current: .current
