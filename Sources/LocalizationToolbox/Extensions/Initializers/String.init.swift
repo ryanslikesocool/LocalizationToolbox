@@ -40,8 +40,8 @@ public extension String {
 	init(
 		localized keyAndValue: LocalizationValue,
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: keyAndValue, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale() ?? .current, comment: comment)
@@ -97,8 +97,8 @@ public extension String {
 		localized keyAndValue: LocalizationValue,
 		options: LocalizationOptions,
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: keyAndValue, options: options, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale() ?? .current, comment: comment)
@@ -145,8 +145,8 @@ public extension String {
 		localized key: StaticString,
 		defaultValue: LocalizationValue,
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, defaultValue: defaultValue, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale() ?? .current, comment: comment)
@@ -209,8 +209,8 @@ public extension String {
 		defaultValue: LocalizationValue,
 		options: LocalizationOptions,
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, defaultValue: defaultValue, options: options, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale() ?? .current, comment: comment)

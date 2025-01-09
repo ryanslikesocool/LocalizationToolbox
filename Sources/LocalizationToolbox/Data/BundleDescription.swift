@@ -140,19 +140,19 @@ extension BundleDescription: BundleDescriptionResolvable {
 // MARK: - Operators
 
 public extension BundleDescription {
-	static func != (lhs: Bundle, rhs: Self) -> Bool {
+	static func != (lhs: Bundle, rhs: borrowing Self) -> Bool {
 		lhs != rhs.resolveBundle()
 	}
 
-	static func != (lhs: Self, rhs: Bundle) -> Bool {
+	static func != (lhs: borrowing Self, rhs: Bundle) -> Bool {
 		lhs.resolveBundle() != rhs
 	}
 
-	static func == (lhs: Self, rhs: Bundle) -> Bool {
+	static func == (lhs: borrowing Self, rhs: Bundle) -> Bool {
 		lhs.resolveBundle() == rhs
 	}
 
-	static func == (lhs: Bundle, rhs: Self) -> Bool {
+	static func == (lhs: Bundle, rhs: borrowing Self) -> Bool {
 		lhs == rhs.resolveBundle()
 	}
 }

@@ -9,15 +9,15 @@ public extension Section where
 	/// Creates a section with the provided section content.
 	///
 	/// - Parameters:
-	///   - title: A string resource that describes the contents of the section.
+	///   - titleResource: A string resource that describes the contents of the section.
 	///   - content: The section’s content.
 	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@_disfavoredOverload
 	nonisolated init(
-		_ title: LocalizedStringResource,
+		_ titleResource: LocalizedStringResource,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: title), content: content)
+		self.init(String(localized: titleResource), content: content)
 	}
 }
 
@@ -29,19 +29,19 @@ public extension Section where
 	/// Creates a section with the provided section content.
 	///
 	/// - Parameters:
-	///   - title: A string resource that describes the contents of the section.
+	///   - titleResource: A string resource that describes the contents of the section.
 	///   - content: The section’s content.
 	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@_disfavoredOverload
 	nonisolated init<V>(
-		_ title: LocalizedStringResource,
+		_ titleResource: LocalizedStringResource,
 		@TableRowBuilder<V> content: () -> Content
 	) where
 		Parent == TableHeaderRowContent<V, Text>,
 		Footer == EmptyTableRowContent<V>,
 		V == Content.TableRowValue
 	{
-		self.init(String(localized: title), content: content)
+		self.init(String(localized: titleResource), content: content)
 	}
 }
 #endif

@@ -11,17 +11,17 @@ public extension Picker where
 	/// view on your behalf.
 	///
 	/// - Parameters:
-	///   - title: A string resource that describes the purpose of selecting an option.
+	///   - titleResource: A string resource that describes the purpose of selecting an option.
 	///   - selection: A binding to a property that determines the currently-selected option.
 	///   - content: A view that contains the set of options.
 	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@_disfavoredOverload
 	nonisolated init(
-		_ title: LocalizedStringResource,
+		_ titleResource: LocalizedStringResource,
 		selection: Binding<SelectionValue>,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: title), selection: selection, content: content)
+		self.init(String(localized: titleResource), selection: selection, content: content)
 	}
 
 	/// Creates a picker bound to a collection of bindings that generates its label from a string resource.
@@ -35,7 +35,7 @@ public extension Picker where
 	/// view on your behalf.
 	///
 	/// - Parameters:
-	///   - title: A string resource that describes the purpose of selecting an option.
+	///   - titleResource: A string resource that describes the purpose of selecting an option.
 	///   - sources: A collection of values used as the source for displaying the Picker’s selection.
 	///   - selection: The key path of the values that determines the currently-selected options.
 	///   When a user selects an option from the picker, the values at the key path of all items in the `sources` collection are updated with the selected option.
@@ -43,12 +43,12 @@ public extension Picker where
 	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@_disfavoredOverload
 	nonisolated init<C>(
-		_ title: LocalizedStringResource,
+		_ titleResource: LocalizedStringResource,
 		sources: C,
 		selection: KeyPath<C.Element, Binding<SelectionValue>>,
 		@ViewBuilder content: () -> Content
 	) where C : RandomAccessCollection {
-		self.init(String(localized: title), sources: sources, selection: selection, content: content)
+		self.init(String(localized: titleResource), sources: sources, selection: selection, content: content)
 	}
 }
 

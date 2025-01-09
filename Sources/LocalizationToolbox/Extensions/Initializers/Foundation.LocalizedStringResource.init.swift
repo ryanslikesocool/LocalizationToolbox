@@ -21,8 +21,8 @@ public extension LocalizedStringResource {
 	init(
 		_ keyAndValue: String.LocalizationValue,
 		table: String? = nil,
-		locale: (some LocaleResolvable)? = nil,
-		bundle: (some BundleDescriptionResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleDescriptionResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(keyAndValue, table: table, locale: locale?.resolveLocale() ?? .current, bundle: bundle?.resolveBundleDescription() ?? .main, comment: comment)
@@ -49,8 +49,8 @@ public extension LocalizedStringResource {
 		_ key: StaticString,
 		defaultValue: String.LocalizationValue,
 		table: String? = nil,
-		locale: (some LocaleResolvable)? = nil,
-		bundle: (some BundleDescriptionResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleDescriptionResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(key, defaultValue: defaultValue, table: table, locale: locale?.resolveLocale() ?? .current, bundle: bundle?.resolveBundleDescription() ?? .main, comment: comment)
@@ -67,7 +67,7 @@ public extension LocalizedStringResource {
 	///   This parameter provides the translator with some context about the localized string’s presentation to the user.
 	init(
 		_ keyAndValue: String.LocalizationValue,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(keyAndValue, table: table.name, locale: table.locale, bundle: table.bundle, comment: comment)
@@ -85,7 +85,7 @@ public extension LocalizedStringResource {
 	init(
 		_ key: StaticString,
 		defaultValue: String.LocalizationValue,
-		table: LocalizationTableResource,
+		table: borrowing LocalizationTableResource,
 		comment: StaticString? = nil
 	) {
 		self.init(key, defaultValue: defaultValue, table: table.name, locale: table.locale, bundle: table.bundle, comment: comment)

@@ -5,7 +5,7 @@ public extension LocalizedStringResource {
 	/// 
 	/// - Parameter locale: The locale of the new resource.
 	/// - Returns: A copy of the resource with the given `locale`.
-	func with(locale: some LocaleResolvable) -> Self {
+	func with(locale: borrowing some LocaleResolvable) -> Self {
 		var copy = self
 		copy.locale = locale.resolveLocale()
 		return copy
