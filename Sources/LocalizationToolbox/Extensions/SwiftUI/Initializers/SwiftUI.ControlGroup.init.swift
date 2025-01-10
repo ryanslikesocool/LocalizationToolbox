@@ -13,6 +13,7 @@ public extension ControlGroup where
 	/// - Parameters:
 	///   - titleResource: A string resource that describes the contents of the group.
 	///   - content: The content to display.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@_disfavoredOverload
 	nonisolated init<C>(
 		_ titleResource: LocalizedStringResource,
@@ -34,6 +35,7 @@ public extension ControlGroup where
 	///   - titleResource: A string resource that describes the contents of the group.
 	///   - image: The image resource to lookup.
 	///   - content: The content to display.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, visionOS 1, *)
 	@_disfavoredOverload
 	nonisolated init<C>(
@@ -57,6 +59,7 @@ public extension ControlGroup where
 	///   - titleResource: A string resource that describes the contents of the group.
 	///   - systemImage: The image resource to lookup.
 	///   - content: The content to display.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
 	@available(iOS 16, macCatalyst 16, macOS 13, tvOS 17, visionOS 1, *)
 	@_disfavoredOverload
 	nonisolated init<C>(

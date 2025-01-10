@@ -184,7 +184,7 @@ public extension Button where
 		role: ButtonRole?,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, action: action)
+		self.init(String(localized: titleResource), systemImage: systemImage, role: role, action: action)
 	}
 
 	// MARK: AppIntents
