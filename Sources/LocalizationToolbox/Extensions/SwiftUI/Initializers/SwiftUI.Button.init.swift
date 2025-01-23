@@ -4,7 +4,7 @@ import SwiftUI
 import AppIntents
 #endif
 
-// MARK: - init (Text)
+// MARK: - where Label == Text
 
 public extension Button where
 	Label == Text
@@ -94,7 +94,7 @@ public extension Button where
 #endif
 }
 
-// MARK: - init (Label)
+// MARK: - where Label == SwiftUI.Label<Text, Image>
 
 public extension Button where
 	Label == SwiftUI.Label<Text, Image>

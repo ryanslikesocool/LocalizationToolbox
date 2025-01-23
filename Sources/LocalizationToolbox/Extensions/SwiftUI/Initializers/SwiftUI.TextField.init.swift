@@ -220,7 +220,7 @@ public extension TextField where
 	/// Use the
 	/// [`onSubmit(of:_:)`]( https://developer.apple.com/documentation/swiftui/view/onsubmit(of:_:) )
 	/// modifier to invoke an action whenever the user submits this text field.
-	/// 
+	///
 	/// - Parameters:
 	///   - titleResource: A string resource that describes the purpose of the text field.
 	///   - text: The text to display and edit.

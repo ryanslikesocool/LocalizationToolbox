@@ -4,7 +4,7 @@ import SwiftUI
 import AppIntents
 #endif
 
-// MARK: - init (Text)
+// MARK: - where Label == Text
 
 public extension Toggle where
 	Label == Text
@@ -75,7 +75,7 @@ public extension Toggle where
 #endif
 }
 
-// MARK: - init (Label)
+// MARK: - where Label == SwiftUI.Label<Text, Image>
 
 public extension Toggle where
 	Label == SwiftUI.Label<Text, Image>
