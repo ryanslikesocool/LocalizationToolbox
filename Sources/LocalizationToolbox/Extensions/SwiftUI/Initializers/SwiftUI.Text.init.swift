@@ -95,7 +95,8 @@ public extension Text {
 	/// - Parameters:
 	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
-//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	init(
 		_ resource: LocalizedStringResource,
 		options: String.LocalizationOptions
@@ -113,7 +114,8 @@ public extension Text {
 	/// - Parameters:
 	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
-//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	init(
 		_ resource: LocalizedStringResource,
 		options: AttributedString.LocalizationOptions
@@ -132,7 +134,8 @@ public extension Text {
 	///   - scope: An
 	///   [`AttributeScopes`]( https://developer.apple.com/documentation/foundation/attributescopes )
 	///   key path that identifies an attribute scope to associate with the attributed string.
-//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	init<S>(
 		_ resource: LocalizedStringResource,
 		options: AttributedString.LocalizationOptions,
@@ -150,7 +153,8 @@ public extension Text {
 	///   - resource: A `LocalizedStringResource` that provides the localization key, table, bundle, and locale.
 	///   - options: A localization options instance that specifies localization options to apply, such as replacement values for formatted strings.
 	///   - scope:
-//	@_disfavoredOverload // VALIDATE: Should this initializer be disfavored?
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	init<S>(
 		_ resource: LocalizedStringResource,
 		options: AttributedString.LocalizationOptions,

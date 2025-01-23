@@ -75,7 +75,7 @@ public extension LocalizationTableResource {
 	/// Create a reference to the given string resource's localization table.
 	///
 	/// - Parameter stringResource: The string resource to extract values from.
-	init(from stringResource: LocalizedStringResource) {
+	init(from stringResource: borrowing LocalizedStringResource) {
 		self.init(
 			stringResource.table,
 			bundle: stringResource.bundle,
@@ -91,7 +91,7 @@ public extension LocalizationTableResource {
 	///
 	/// - Parameter locale: The locale of the new resource.
 	/// - Returns: A copy of the resource with the given `locale`.
-	func with(locale: some LocaleDescriptionResolvable) -> Self {
+	func with(locale: borrowing some LocaleDescriptionResolvable) -> Self {
 		var copy = self
 		copy.locale = locale.resolveLocaleDescription()
 		return copy

@@ -56,8 +56,8 @@ public extension AttributedString {
 		localized key: String.LocalizationValue,
 		options: AttributedString.FormattingOptions = [],
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, options: options, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale(), comment: comment)
@@ -119,8 +119,8 @@ public extension AttributedString {
 		localized key: String.LocalizationValue,
 		options: AttributedString.FormattingOptions = [],
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil,
 		including scope: KeyPath<AttributeScopes, S.Type>
 	) where S: AttributeScope {
@@ -152,8 +152,8 @@ public extension AttributedString {
 		defaultValue: String.LocalizationValue,
 		options: AttributedString.FormattingOptions = [],
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil
 	) {
 		self.init(localized: key, defaultValue: defaultValue, options: options, table: table, bundle: bundle?.resolveBundle(), locale: locale?.resolveLocale(), comment: comment)
@@ -187,8 +187,8 @@ public extension AttributedString {
 		defaultValue: String.LocalizationValue,
 		options: AttributedString.FormattingOptions = [],
 		table: String? = nil,
-		bundle: (some BundleResolvable)? = nil,
-		locale: (some LocaleResolvable)? = nil,
+		bundle: borrowing (some BundleResolvable)? = nil,
+		locale: borrowing (some LocaleResolvable)? = nil,
 		comment: StaticString? = nil,
 		including scope: KeyPath<AttributeScopes, S.Type>
 	) where S: AttributeScope {
