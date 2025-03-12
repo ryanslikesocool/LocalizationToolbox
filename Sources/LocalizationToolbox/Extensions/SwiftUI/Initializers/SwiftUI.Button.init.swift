@@ -24,7 +24,9 @@ public extension Button where
 		_ titleResource: LocalizedStringResource,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), action: action)
+		self.init(action: action) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a button with a specified role that generates its label from a string resource.
@@ -45,7 +47,9 @@ public extension Button where
 		role: ButtonRole?,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), role: role, action: action)
+		self.init(role: role, action: action) {
+			Label(titleResource)
+		}
 	}
 
 	// MARK: AppIntents
@@ -67,7 +71,9 @@ public extension Button where
 		_ titleResource: LocalizedStringResource,
 		intent: some AppIntent
 	) {
-		self.init(String(localized: titleResource), intent: intent)
+		self.init(intent: intent) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a button with a specified role that performs an `AppIntent` and generates its label from a string resource.
@@ -89,7 +95,9 @@ public extension Button where
 		role: ButtonRole?,
 		intent: some AppIntent
 	) {
-		self.init(String(localized: titleResource), role: role, intent: intent)
+		self.init(role: role, intent: intent) {
+			Label(titleResource)
+		}
 	}
 #endif
 }
@@ -117,7 +125,9 @@ public extension Button where
 		image: ImageResource,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), image: image, action: action)
+		self.init(action: action) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a button with a specified role that generates its label from a string resource and image resource.
@@ -141,7 +151,9 @@ public extension Button where
 		role: ButtonRole?,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), image: image, role: role, action: action)
+		self.init(role: role, action: action) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a button that generates its label from a string resource and system image name.
@@ -161,7 +173,9 @@ public extension Button where
 		systemImage: String,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, action: action)
+		self.init(action: action) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 
 	/// Creates a button with a specified role that generates its label from a string resource and system image name.
@@ -184,7 +198,9 @@ public extension Button where
 		role: ButtonRole?,
 		action: @escaping @MainActor () -> Void
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, role: role, action: action)
+		self.init(role: role, action: action) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 
 	// MARK: AppIntents
@@ -211,7 +227,9 @@ public extension Button where
 		role: ButtonRole? = nil,
 		intent: some AppIntent
 	) {
-		self.init(String(localized: titleResource), image: image, role: role, intent: intent)
+		self.init(role: role, intent: intent) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a button that performs an `AppIntent` and generates its label from a string resource and system image name.
@@ -235,7 +253,9 @@ public extension Button where
 		role: ButtonRole? = nil,
 		intent: some AppIntent
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, role: role, intent: intent)
+		self.init(role: role, intent: intent) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 #endif
 }

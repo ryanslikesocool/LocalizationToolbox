@@ -21,7 +21,9 @@ public extension Menu where
 		_ titleResource: LocalizedStringResource,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), content: content)
+		self.init(content: content) {
+			Label(titleResource)
+		}
 	}
 
 	// MARK: primaryAction
@@ -43,7 +45,7 @@ public extension Menu where
 		@ViewBuilder content: () -> Content,
 		primaryAction: @escaping () -> Void
 	) {
-		self.init(String(localized: titleResource), content: content, primaryAction: primaryAction)
+		self.init(content: content, label: { Label(titleResource) }, primaryAction: primaryAction)
 	}
 }
 
@@ -70,7 +72,9 @@ public extension Menu where
 		image: ImageResource,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), image: image, content: content)
+		self.init(content: content) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a menu that generates its label from a string resource and system image.
@@ -90,7 +94,9 @@ public extension Menu where
 		systemImage: String,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, content: content)
+		self.init(content: content) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 
 	// MARK: primaryAction
@@ -116,7 +122,9 @@ public extension Menu where
 //		@ViewBuilder content: () -> Content,
 //		primaryAction: @escaping () -> Void
 //	) {
-//		self.init(String(localized: titleResource), image: image, content: content, primaryAction: primaryAction)
+//		self.init(content: content, primaryAction: primaryAction) {
+//			Label(titleResource, image: image)
+//		}
 //	}
 
 	// NOTE: For some reason, SwiftUI doesn't have a matching initializer that accepts `StringProtocol`.
@@ -139,7 +147,7 @@ public extension Menu where
 //		@ViewBuilder content: () -> Content,
 //		primaryAction: @escaping () -> Void
 //	) {
-//		self.init(String(localized: titleResource), systemImage: systemImage, content: content, primaryAction: primaryAction)
+//		self.init(content: content, label: { Label(titleResource, systemImage: systemImage) }, primaryAction: primaryAction)
 //	}
 }
 #endif

@@ -20,7 +20,9 @@ public extension NavigationLink where
 		_ titleResource: LocalizedStringResource,
 		@ViewBuilder destination: () -> Destination
 	) {
-		self.init(String(localized: titleResource), destination: destination)
+		self.init(destination: destination) {
+			Label(titleResource)
+		}
 	}
 }
 
@@ -74,7 +76,9 @@ public extension NavigationLink where
 		P: Encodable,
 		P: Hashable
 	{
-		self.init(String(localized: titleResource), value: value)
+		self.init(value: value) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a navigation link that presents the view corresponding to a value, with a text label that the link generates from a string resource.
@@ -118,7 +122,9 @@ public extension NavigationLink where
 	) where
 		P: Hashable
 	{
-		self.init(String(localized: titleResource), value: value)
+		self.init(value: value) {
+			Label(titleResource)
+		}
 	}
 }
 #endif

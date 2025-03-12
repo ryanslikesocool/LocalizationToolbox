@@ -23,7 +23,9 @@ public extension TextField where
 		_ titleResource: LocalizedStringResource,
 		text: Binding<String>
 	) {
-		self.init(String(localized: titleResource), text: text)
+		self.init(text: text) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a text field that generates its label from a string resource.
@@ -47,7 +49,9 @@ public extension TextField where
 		text: Binding<String>,
 		prompt: Text?
 	) {
-		self.init(String(localized: titleResource), text: text, prompt: prompt)
+		self.init(text: text, prompt: prompt) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a text field with a preferred axis that generates its label from a string resource.
@@ -74,7 +78,9 @@ public extension TextField where
 		text: Binding<String>,
 		axis: Axis
 	) {
-		self.init(String(localized: titleResource), text: text, axis: axis)
+		self.init(text: text, axis: axis) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a text field with a preferred axis that generates its label from a string resource.
@@ -103,7 +109,9 @@ public extension TextField where
 		prompt: Text?,
 		axis: Axis
 	) {
-		self.init(String(localized: titleResource), text: text, prompt: prompt, axis: axis)
+		self.init(text: text, prompt: prompt, axis: axis) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a text field that applies a format style to a bound value that generates its label from a string resource.
@@ -142,7 +150,9 @@ public extension TextField where
 		F: ParseableFormatStyle,
 		F.FormatOutput == String
 	{
-		self.init(String(localized: titleResource), value: value, format: format, prompt: prompt)
+		self.init(value: value, format: format, prompt: prompt) {
+			Label(titleResource)
+		}
 	}
 
 	/// Create an instance which binds over an arbitrary value that generates its label from a string resource.
@@ -174,7 +184,9 @@ public extension TextField where
 		value: Binding<V>,
 		formatter: Formatter
 	) {
-		self.init(String(localized: titleResource), value: value, formatter: formatter)
+		self.init(value: value, formatter: formatter) {
+			Label(titleResource)
+		}
 	}
 
 	/// Create an instance which binds over an arbitrary value that generates its label from a string resource.
@@ -208,7 +220,9 @@ public extension TextField where
 		formatter: Formatter,
 		prompt: Text?
 	) {
-		self.init(String(localized: titleResource), value: value, formatter: formatter, prompt: prompt)
+		self.init(value: value, formatter: formatter, prompt: prompt) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a text field with a binding to the current selection that generates its label from a string resource.

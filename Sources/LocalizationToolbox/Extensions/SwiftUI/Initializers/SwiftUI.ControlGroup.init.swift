@@ -22,7 +22,9 @@ public extension ControlGroup where
 		Content == LabeledControlGroupContent<C, Text>,
 		C: View
 	{
-		self.init(String(localized: titleResource), content: content)
+		self.init(content: content) {
+			Text(titleResource)
+		}
 	}
 
 	/// Creates a new control group with the specified content that generates its label from a string resource and image resource.
@@ -46,7 +48,9 @@ public extension ControlGroup where
 		Content == LabeledControlGroupContent<C, Label<Text, Image>>,
 		C: View
 	{
-		self.init(String(localized: titleResource), image: image, content: content)
+		self.init(content: content) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a new control group with the specified content that generates its label from a string resource and system image name.
@@ -70,7 +74,9 @@ public extension ControlGroup where
 		Content == LabeledControlGroupContent<C, Label<Text, Image>>,
 		C: View
 	{
-		self.init(String(localized: titleResource), systemImage: systemImage, content: content)
+		self.init(content: content) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 }
 #endif

@@ -14,10 +14,11 @@ public extension View {
 	@available(tvOS, unavailable)
 	@available(visionOS, unavailable)
 	@available(watchOS, unavailable)
+	@inlinable
 	nonisolated func navigationSubtitle(
 		_ titleResource: LocalizedStringResource
 	) -> some View {
-		navigationSubtitle(String(localized: titleResource))
+		navigationSubtitle(Text(titleResource))
 	}
 }
 #endif

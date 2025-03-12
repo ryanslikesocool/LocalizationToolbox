@@ -23,7 +23,9 @@ public extension Picker where
 		selection: Binding<SelectionValue>,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), selection: selection, content: content)
+		self.init(selection: selection, content: content) {
+			Label(titleResource)
+		}
 	}
 
 	/// Creates a picker bound to a collection of bindings that generates its label from a string resource.
@@ -50,7 +52,9 @@ public extension Picker where
 		selection: KeyPath<C.Element, Binding<SelectionValue>>,
 		@ViewBuilder content: () -> Content
 	) where C: RandomAccessCollection {
-		self.init(String(localized: titleResource), sources: sources, selection: selection, content: content)
+		self.init(sources: sources, selection: selection, content: content) {
+			Label(titleResource)
+		}
 	}
 
 	// MARK: currentValueLabel
@@ -75,7 +79,7 @@ public extension Picker where
 		@ViewBuilder content: () -> Content,
 		@ViewBuilder currentValueLabel: () -> some View
 	) {
-		self.init(String(localized: titleResource), selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(selection: selection, content: content, label: { Label(titleResource) }, currentValueLabel: currentValueLabel)
 	}
 
 	/// Creates a picker bound to a collection of bindings that generates its label from a string resource and accepts a custom current value label.
@@ -105,7 +109,7 @@ public extension Picker where
 		@ViewBuilder content: () -> Content,
 		@ViewBuilder currentValueLabel: () -> some View
 	) where C: RandomAccessCollection {
-		self.init(String(localized: titleResource), sources: sources, selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(sources: sources, selection: selection, content: content, label: { Label(titleResource) }, currentValueLabel: currentValueLabel)
 	}
 }
 
@@ -134,7 +138,9 @@ public extension Picker where
 		selection: Binding<SelectionValue>,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), image: image, selection: selection, content: content)
+		self.init(selection: selection, content: content) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a picker that generates its label from a string resource and image resource.
@@ -167,7 +173,9 @@ public extension Picker where
 		C: RandomAccessCollection,
 		C.Element == Binding<SelectionValue>
 	{
-		self.init(String(localized: titleResource), image: image, sources: sources, selection: selection, content: content)
+		self.init(sources: sources, selection: selection, content: content) {
+			Label(titleResource, image: image)
+		}
 	}
 
 	/// Creates a picker that generates its label from a string resource and system image.
@@ -189,7 +197,9 @@ public extension Picker where
 		selection: Binding<SelectionValue>,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, selection: selection, content: content)
+		self.init(selection: selection, content: content) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 
 	/// Creates a picker that generates its label from a string resource and system image.
@@ -221,7 +231,9 @@ public extension Picker where
 		C: RandomAccessCollection,
 		C.Element == Binding<SelectionValue>
 	{
-		self.init(String(localized: titleResource), systemImage: systemImage, sources: sources, selection: selection, content: content)
+		self.init(sources: sources, selection: selection, content: content) {
+			Label(titleResource, systemImage: systemImage)
+		}
 	}
 
 	// MARK: currentValueLabel
@@ -248,7 +260,7 @@ public extension Picker where
 		@ViewBuilder content: () -> Content,
 		@ViewBuilder currentValueLabel: () -> some View
 	) {
-		self.init(String(localized: titleResource), image: image, selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(selection: selection, content: content, label: { Label(titleResource, image: image) }, currentValueLabel: currentValueLabel)
 	}
 
 	/// Creates a picker that generates its label from a string resource and image resource and accepts a custom current value label.
@@ -283,7 +295,7 @@ public extension Picker where
 		C: RandomAccessCollection,
 		C.Element == Binding<SelectionValue>
 	{
-		self.init(String(localized: titleResource), image: image, sources: sources, selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(sources: sources, selection: selection, content: content, label: { Label(titleResource, image: image) }, currentValueLabel: currentValueLabel)
 	}
 
 	/// Creates a picker that generates its label from a string resource and system image and accepts a custom current value label.
@@ -308,7 +320,7 @@ public extension Picker where
 		@ViewBuilder content: () -> Content,
 		@ViewBuilder currentValueLabel: () -> some View
 	) {
-		self.init(String(localized: titleResource), systemImage: systemImage, selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(selection: selection, content: content, label: { Label(titleResource, systemImage: systemImage) }, currentValueLabel: currentValueLabel)
 	}
 
 	/// Creates a picker that generates its label from a string resource and system image and accepts a custom current value label.
@@ -343,7 +355,7 @@ public extension Picker where
 		C: RandomAccessCollection,
 		C.Element == Binding<SelectionValue>
 	{
-		self.init(String(localized: titleResource), systemImage: systemImage, sources: sources, selection: selection, content: content, currentValueLabel: currentValueLabel)
+		self.init(sources: sources, selection: selection, content: content, label: { Label(titleResource, systemImage: systemImage) }, currentValueLabel: currentValueLabel)
 	}
 }
 #endif
