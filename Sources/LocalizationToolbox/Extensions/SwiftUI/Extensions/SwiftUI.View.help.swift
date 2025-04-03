@@ -1,6 +1,7 @@
 #if canImport(SwiftUI)
 import SwiftUI
 
+@available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, watchOS 9, *)
 public extension View {
 	/// Adds help text to a view using a string resource that you provide.
 	///
@@ -11,7 +12,6 @@ public extension View {
 	///
 	/// - Parameters:
 	///   - textResource: The string resource for the localized text to use as help.
-	@available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, watchOS 9, *)
 	@inlinable
 	nonisolated func help(
 		_ textResource: LocalizedStringResource

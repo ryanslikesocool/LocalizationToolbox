@@ -3,6 +3,9 @@ import SwiftUI
 #if canImport(AppIntents)
 import AppIntents
 #endif
+#if SFSymbolToolbox
+import SFSymbolToolbox
+#endif
 
 // MARK: - where Label == Text
 
@@ -257,6 +260,162 @@ public extension Button where
 			Label(titleResource, systemImage: systemImage)
 		}
 	}
+#endif
+
+	// MARK: SFSymbolToobox
+
+#if SFSymbolToolbox
+	/// Creates a button that generates its label from a string resource and image resource.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `action`.
+	///   - image: The image resource to lookup.
+	///   - action: The action to perform when the user triggers the button.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, visionOS 1, watchOS 10, *)
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		image: CustomSymbolName,
+		action: @escaping @MainActor () -> Void
+	) {
+		self.init(action: action) {
+			Label(titleResource, image: image)
+		}
+	}
+
+	/// Creates a button with a specified role that generates its label from a string resource and image resource.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `action`.
+	///   - image: The image resource to lookup.
+	///   - role: An optional semantic role describing the button.
+	///   A value of `nil` means that the button doesn’t have an assigned role.
+	///   - action: The action to perform when the user triggers the button.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, visionOS 1, watchOS 10, *)
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		image: CustomSymbolName,
+		role: ButtonRole?,
+		action: @escaping @MainActor () -> Void
+	) {
+		self.init(role: role, action: action) {
+			Label(titleResource, image: image)
+		}
+	}
+
+	/// Creates a button that generates its label from a string resource and system image name.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `action`.
+	///   - systemImage: The name of the image resource to lookup.
+	///   - action: The action to perform when the user triggers the button.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		systemImage: SystemSymbolName,
+		action: @escaping @MainActor () -> Void
+	) {
+		self.init(action: action) {
+			Label(titleResource, systemImage: systemImage)
+		}
+	}
+
+	/// Creates a button with a specified role that generates its label from a string resource and system image name.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `action`.
+	///   - systemImage: The name of the image resource to lookup.
+	///   - role: An optional semantic role describing the button.
+	///   A value of `nil` means that the button doesn’t have an assigned role.
+	///   - action: The action to perform when the user triggers the button.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		systemImage: SystemSymbolName,
+		role: ButtonRole?,
+		action: @escaping @MainActor () -> Void
+	) {
+		self.init(role: role, action: action) {
+			Label(titleResource, systemImage: systemImage)
+		}
+	}
+
+	// MARK: AppIntents + SFSymbolToolbox
+
+#if canImport(AppIntents)
+	/// Creates a button that performs an `AppIntent` and generates its label from a string resource and image resource.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `intent`.
+	///   - image: The image resource to lookup.
+	///   - role: An optional semantic role describing the button.
+	///   A value of `nil` means that the button doesn’t have an assigned role.
+	///   - intent: The `AppIntent` to execute.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, watchOS 10, *)
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		image: CustomSymbolName,
+		role: ButtonRole? = nil,
+		intent: some AppIntent
+	) {
+		self.init(role: role, intent: intent) {
+			Label(titleResource, image: image)
+		}
+	}
+
+	/// Creates a button that performs an `AppIntent` and generates its label from a string resource and system image name.
+	///
+	/// This initializer creates a
+	/// [`Label`]( https://developer.apple.com/documentation/swiftui/label )
+	/// view on your behalf.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource that describes the purpose of the button’s `intent`.
+	///   - systemImage: The name of the image resource to lookup.
+	///   - role: An optional semantic role describing the button.
+	///   A value of `nil` means that the button doesn’t have an assigned role.
+	///   - intent: The `AppIntent` to execute.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@available(iOS 17, macCatalyst 17, macOS 14, tvOS 17, watchOS 10, *)
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		systemImage: SystemSymbolName,
+		role: ButtonRole? = nil,
+		intent: some AppIntent
+	) {
+		self.init(role: role, intent: intent) {
+			Label(titleResource, systemImage: systemImage)
+		}
+	}
+#endif
 #endif
 }
 #endif

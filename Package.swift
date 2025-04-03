@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.1
 
 import PackageDescription
 
@@ -16,7 +16,28 @@ let package = Package(
 	products: [
 		.library(name: "LocalizationToolbox", targets: ["LocalizationToolbox"]),
 	],
+	traits: [
+		.default(enabledTraits: []),
+
+		.trait(
+			name: "SFSymbolToolbox",
+			description: "Enables additional overloads when using the [SFSymbolToolbox]( https://github.com/ryanslikesocool/SFSymbolToolbox ) package.",
+			enabledTraits: []
+		),
+	],
+	dependencies: [
+		.package(url: "https://github.com/ryanslikesocool/SFSymbolToolbox", from: "0.0.3"),
+	],
 	targets: [
-		.target(name: "LocalizationToolbox"),
+		.target(
+			name: "LocalizationToolbox",
+			dependencies: [
+				.product(
+					name: "SFSymbolToolbox",
+					package: "SFSymbolToolbox",
+					condition: .when(traits: ["SFSymbolToolbox"])
+				),
+			]
+		),
 	]
 )

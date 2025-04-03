@@ -1,5 +1,8 @@
 #if canImport(SwiftUI)
 import SwiftUI
+#if SFSymbolToolbox
+import SFSymbolToolbox
+#endif
 
 public extension Label where
 	Title == Text,
@@ -16,7 +19,11 @@ public extension Label where
 		_ titleResource: LocalizedStringResource,
 		systemImage name: String
 	) {
-		self.init(String(localized: titleResource), systemImage: name)
+		self.init {
+			Text(titleResource)
+		} icon: {
+			Image(systemName: name)
+		}
 	}
 
 	/// Creates a label with an icon image and a title generated from a string resource.
@@ -30,7 +37,11 @@ public extension Label where
 		_ titleResource: LocalizedStringResource,
 		image name: String
 	) {
-		self.init(String(localized: titleResource), image: name)
+		self.init {
+			Text(titleResource)
+		} icon: {
+			Image(name)
+		}
 	}
 
 	/// Creates a label with an icon image and a title generated from a string resource.
@@ -45,7 +56,51 @@ public extension Label where
 		_ titleResource: LocalizedStringResource,
 		image resource: ImageResource
 	) {
-		self.init(String(localized: titleResource), image: resource)
+		self.init {
+			Text(titleResource)
+		} icon: {
+			Image(resource)
+		}
 	}
+
+	// MARK: SFSymbolToolbox
+
+#if SFSymbolToolbox
+	/// Creates a label with a system icon image and a title generated from a string resource.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource used as the label’s title.
+	///   - name: The name of the image resource to lookup.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		systemImage name: SystemSymbolName
+	) {
+		self.init {
+			Text(titleResource)
+		} icon: {
+			Image(systemName: name)
+		}
+	}
+
+	/// Creates a label with an icon image and a title generated from a string resource.
+	///
+	/// - Parameters:
+	///   - titleResource: A string resource used as the label’s title.
+	///   - name: The name of the image resource to lookup.
+	// NOTE: This initializer is disfavored over the initializer that receives `LocalizedStringKey`.
+	@_disfavoredOverload
+	nonisolated init(
+		_ titleResource: LocalizedStringResource,
+		image name: CustomSymbolName
+	) {
+		self.init {
+			Text(titleResource)
+		} icon: {
+			Image(name)
+		}
+	}
+#endif
 }
 #endif
