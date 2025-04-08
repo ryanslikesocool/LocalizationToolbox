@@ -5,8 +5,10 @@ String localization utilities and conveniences for Swift.
 
 ## NOTICE
 
-**This package is under development and not considered production-ready.**<br/>
-Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
+**This package is under development and not considered production-ready.**
+<br/>
+Breaking changes are common, documentation is incomplete, and support is limited.
+Use at your own risk.
 
 ---
 
@@ -15,7 +17,7 @@ Breaking changes are common, documentation is incomplete, and support is limited
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.5"),
+.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.6"),
 ```
 ... and your target dependencies.
 ```swift
@@ -33,6 +35,6 @@ Add the following entry to your package dependencies...
 ## Documentation
 
 Most of this package is documented with
-[DocC](https://www.swift.org/documentation/docc/)\.
+[DocC]( https://www.swift.org/documentation/docc/ ).
 <br/>
 To view documentation in Xcode, select `Product > Build Documentation` from the menu bar.

@@ -20,7 +20,9 @@ public extension LabeledContent where
 		_ titleResource: LocalizedStringResource,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), content: content)
+		self.init(content: content) {
+			Label(titleResource)
+		}
 	}
 }
 

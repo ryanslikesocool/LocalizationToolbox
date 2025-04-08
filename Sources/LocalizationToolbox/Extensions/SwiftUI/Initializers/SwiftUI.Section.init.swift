@@ -17,7 +17,9 @@ public extension Section where
 		_ titleResource: LocalizedStringResource,
 		@ViewBuilder content: () -> Content
 	) {
-		self.init(String(localized: titleResource), content: content)
+		self.init(content: content) {
+			Parent(titleResource)
+		}
 	}
 }
 
@@ -41,7 +43,9 @@ public extension Section where
 		Footer == EmptyTableRowContent<V>,
 		V == Content.TableRowValue
 	{
-		self.init(String(localized: titleResource), content: content)
+		self.init(content: content) {
+			Text(titleResource)
+		}
 	}
 }
 #endif

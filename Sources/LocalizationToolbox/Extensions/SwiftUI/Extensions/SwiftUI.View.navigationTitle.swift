@@ -15,10 +15,11 @@ public extension View {
 	///
 	/// - Parameters:
 	///   - titleResource: The string resource to display.
+	@inlinable
 	nonisolated func navigationTitle(
 		_ titleResource: LocalizedStringResource
 	) -> some View {
-		navigationTitle(String(localized: titleResource))
+		navigationTitle(Text(titleResource))
 	}
 }
 #endif
