@@ -6,12 +6,12 @@ let package = Package(
 	name: "LocalizationToolbox",
 	defaultLocalization: "en",
 	platforms: [
-		.macOS(.v13),
 		.iOS(.v16),
+		.macCatalyst(.v16),
+		.macOS(.v13),
 		.tvOS(.v16),
-		.watchOS(.v9),
-		.macCatalyst(.v13),
 		.visionOS(.v1),
+		.watchOS(.v9),
 	],
 	products: [
 		.library(name: "LocalizationToolbox", targets: ["LocalizationToolbox"]),
