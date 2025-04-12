@@ -17,7 +17,7 @@ Use at your own risk.
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.6"),
+.package(url: "https://github.com/ryanslikesocool/LocalizationToolbox.git", from: "0.0.7"),
 ```
 ... and your target dependencies.
 ```swift
