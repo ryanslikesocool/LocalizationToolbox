@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 public extension View {
@@ -15,6 +15,8 @@ public extension View {
 	///
 	/// - Parameters:
 	///   - titleResource: The string resource to display.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func navigationTitle(
 		_ titleResource: LocalizedStringResource

@@ -9,6 +9,7 @@ import SFSymbolToolbox
 public extension Picker where
 	Label == Text
 {
+#if LocalizationToolboxLegacy
 	/// Creates a picker that generates its label from a string resource.
 	///
 	/// This initializer creates a
@@ -114,6 +115,7 @@ public extension Picker where
 	) where C: RandomAccessCollection {
 		self.init(sources: sources, selection: selection, content: content, label: { Label(titleResource) }, currentValueLabel: currentValueLabel)
 	}
+#endif
 }
 
 // MARK: - where Label == SwiftUI.Label<Text, Image>
@@ -121,6 +123,7 @@ public extension Picker where
 public extension Picker where
 	Label == SwiftUI.Label<Text, Image>
 {
+#if LocalizationToolboxLegacy
 	/// Creates a picker that generates its label from a string resource and image resource.
 	///
 	/// This initializer creates a
@@ -238,6 +241,7 @@ public extension Picker where
 			Label(titleResource, systemImage: systemImage)
 		}
 	}
+#endif
 
 	// MARK: SFSymbolToolbox
 
@@ -364,6 +368,7 @@ public extension Picker where
 
 	// MARK: currentValueLabel
 
+#if LocalizationToolboxLegacy
 	/// Creates a picker that generates its label from a string resource and image resource and accepts a custom current value label.
 	///
 	/// This initializer creates a
@@ -483,6 +488,7 @@ public extension Picker where
 	{
 		self.init(sources: sources, selection: selection, content: content, label: { Label(titleResource, systemImage: systemImage) }, currentValueLabel: currentValueLabel)
 	}
+#endif
 
 	// MARK: SFSymbolToolbox
 

@@ -7,6 +7,7 @@ import SFSymbolToolbox
 public extension ControlGroup where
 	Content: View
 {
+#if LocalizationToolboxLegacy
 	/// Creates a new control group with the specified content that generates its label from a string resource.
 	///
 	/// This initializer creates a
@@ -81,6 +82,7 @@ public extension ControlGroup where
 			Label(titleResource, systemImage: systemImage)
 		}
 	}
+#endif
 
 	// MARK: SFSymbolToolbox
 

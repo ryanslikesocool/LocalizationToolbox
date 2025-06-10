@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 @available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, watchOS 9, *)
@@ -12,6 +12,8 @@ public extension View {
 	///
 	/// - Parameters:
 	///   - textResource: The string resource for the localized text to use as help.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func help(
 		_ textResource: LocalizedStringResource

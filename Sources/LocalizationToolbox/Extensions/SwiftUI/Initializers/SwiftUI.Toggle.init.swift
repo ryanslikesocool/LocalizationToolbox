@@ -12,6 +12,7 @@ import SFSymbolToolbox
 public extension Toggle where
 	Label == Text
 {
+#if LocalizationToolboxLegacy
 	/// Creates a toggle that generates its label from a string resource.
 	///
 	/// This initializer creates a
@@ -82,6 +83,7 @@ public extension Toggle where
 		}
 	}
 #endif
+#endif
 }
 
 // MARK: - where Label == SwiftUI.Label<Text, Image>
@@ -89,6 +91,7 @@ public extension Toggle where
 public extension Toggle where
 	Label == SwiftUI.Label<Text, Image>
 {
+#if LocalizationToolboxLegacy
 	/// Creates a toggle that generates its label from a string resource and image resource.
 	///
 	/// This initializer creates a
@@ -182,6 +185,7 @@ public extension Toggle where
 			Label(titleResource, systemImage: systemImage)
 		}
 	}
+#endif
 
 	// MARK: SFSymbolToolbox
 

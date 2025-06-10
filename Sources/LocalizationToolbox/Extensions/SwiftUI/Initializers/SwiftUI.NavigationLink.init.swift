@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 public extension NavigationLink where

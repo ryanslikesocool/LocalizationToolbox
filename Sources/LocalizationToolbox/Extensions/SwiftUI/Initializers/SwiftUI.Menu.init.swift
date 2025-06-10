@@ -9,6 +9,7 @@ import SFSymbolToolbox
 public extension Menu where
 	Label == Text
 {
+#if LocalizationToolboxLegacy
 	/// Creates a menu that generates its label from a string resource.
 	///
 	/// This initializer creates a
@@ -50,6 +51,7 @@ public extension Menu where
 	) {
 		self.init(content: content, label: { Label(titleResource) }, primaryAction: primaryAction)
 	}
+#endif
 }
 
 // MARK: - where Label == SwiftUI.Label<Text, Image>
@@ -57,6 +59,7 @@ public extension Menu where
 public extension Menu where
 	Label == SwiftUI.Label<Text, Image>
 {
+#if LocalizationToolboxLegacy
 	/// Creates a menu that generates its label from a string resource and image resource.
 	///
 	/// This initializer creates a
@@ -152,6 +155,7 @@ public extension Menu where
 //	) {
 //		self.init(content: content, label: { Label(titleResource, systemImage: systemImage) }, primaryAction: primaryAction)
 //	}
+#endif
 
 	// MARK: SFSymbolToolbox
 

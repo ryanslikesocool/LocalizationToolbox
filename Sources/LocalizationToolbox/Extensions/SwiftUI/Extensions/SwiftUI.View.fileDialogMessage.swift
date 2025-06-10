@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, *)
@@ -12,6 +12,8 @@ public extension View {
 	/// with a custom text that is presented to the user, similar to a title.
 	///
 	/// - Parameter messageResource: The string resource to use as the file dialog message.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func fileDialogMessage(
 		_ messageResource: LocalizedStringResource

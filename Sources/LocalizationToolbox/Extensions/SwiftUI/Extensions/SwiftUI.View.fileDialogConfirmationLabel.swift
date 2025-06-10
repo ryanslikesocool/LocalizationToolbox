@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, *)
@@ -12,6 +12,8 @@ public extension View {
 	/// with a custom confirmation button label.
 	///
 	/// - Parameter labelResource: The string resource to use as the label for the confirmation button.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func fileDialogConfirmationLabel(
 		_ labelResource: LocalizedStringResource

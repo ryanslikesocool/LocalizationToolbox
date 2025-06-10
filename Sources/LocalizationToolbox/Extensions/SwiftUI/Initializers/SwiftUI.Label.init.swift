@@ -8,6 +8,7 @@ public extension Label where
 	Title == Text,
 	Icon == Image
 {
+#if LocalizationToolboxLegacy
 	/// Creates a label with a system icon image and a title generated from a string resource.
 	///
 	/// - Parameters:
@@ -62,6 +63,7 @@ public extension Label where
 			Image(resource)
 		}
 	}
+#endif
 
 	// MARK: SFSymbolToolbox
 

@@ -12,6 +12,7 @@ import SFSymbolToolbox
 public extension Button where
 	Label == Text
 {
+#if LocalizationToolboxLegacy
 	/// Creates a button that generates its label from a string resource.
 	///
 	/// This initializer creates a
@@ -103,6 +104,7 @@ public extension Button where
 		}
 	}
 #endif
+#endif
 }
 
 // MARK: - where Label == SwiftUI.Label<Text, Image>
@@ -110,6 +112,7 @@ public extension Button where
 public extension Button where
 	Label == SwiftUI.Label<Text, Image>
 {
+#if LocalizationToolboxLegacy
 	/// Creates a button that generates its label from a string resource and image resource.
 	///
 	/// This initializer creates a
@@ -260,6 +263,7 @@ public extension Button where
 			Label(titleResource, systemImage: systemImage)
 		}
 	}
+#endif
 #endif
 
 	// MARK: SFSymbolToobox

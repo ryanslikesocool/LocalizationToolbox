@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 @available(macCatalyst 14, macOS 11, *)
@@ -14,6 +14,8 @@ public extension View {
 	///
 	/// - Parameters:
 	///   - titleResource: The string resource to display.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func navigationSubtitle(
 		_ titleResource: LocalizedStringResource

@@ -24,6 +24,12 @@ let package = Package(
 			description: "Enables additional overloads when using the [SFSymbolToolbox]( https://github.com/ryanslikesocool/SFSymbolToolbox ) package.",
 			enabledTraits: []
 		),
+
+		.trait(
+			name: "LocalizationToolboxLegacy",
+			description: "Enables additional overloads that Apple now provides by default.",
+			enabledTraits: []
+		),
 	],
 	dependencies: [
 		.package(url: "https://github.com/ryanslikesocool/SFSymbolToolbox", from: "0.0.3"),

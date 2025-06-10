@@ -1,4 +1,4 @@
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && LocalizationToolboxLegacy
 import SwiftUI
 
 @available(iOS 17.0, macOS 14.0, *)
@@ -10,6 +10,8 @@ public extension View {
 	/// with a text to use as a label for the file name field.
 	///
 	/// - Parameter labelResource: The string resource to use as the label for the file name field.
+	// NOTE: This function is disfavored over the function that receives `LocalizedStringKey`.
+	@_disfavoredOverload
 	@inlinable
 	nonisolated func fileExporterFilenameLabel(
 		_ labelResource: LocalizedStringResource
