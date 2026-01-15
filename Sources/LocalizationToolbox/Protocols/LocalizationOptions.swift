@@ -25,6 +25,7 @@ public extension LocalizationOptions {
 	/// Create new localization options.
 	///
 	/// - Parameter replacements: A sequence of replacement options.
+	@_disfavoredOverload
 	init<S>(replacements: S) where
 		S: Sequence,
 		S.Element: CVarArg
@@ -35,6 +36,7 @@ public extension LocalizationOptions {
 	/// Create new localization options.
 	///
 	/// - Parameter replacements: Replacement options.
+	@available(*, deprecated, message: "Use the initializers that accept an array or sequence.")
 	@_disfavoredOverload
 	init(replacements: any CVarArg...) {
 		self.init(replacements: replacements)
